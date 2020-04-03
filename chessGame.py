@@ -1,4 +1,5 @@
 # Nicholas Aubé
+import random
 
 class ChessGame():
 	gameWon = False
@@ -88,6 +89,20 @@ class ChessGame():
 
 		return False
 
+	def AIMove(self):
+		# Create a list of possible moves
+		possibleMoves = []
+		for row in range(3):
+			for col in range(3):
+				if self.board[row][col] == " ":
+					possibleMoves.append((row, col))
+
+		
+
+		random.shuffle(possibleMoves)
+		print(possibleMoves)
+		return possibleMoves[0]
+
 	def checkWin(self):
 		#check down columns
 		token = "O" if self.playerTurn else "X"
@@ -128,12 +143,13 @@ class ChessGame():
 			x = None
 
 			if self.playerTurn is False:
-				print("aimove")
-				successfullMove = True
-				#try move
+
+				print("Ai's Turn\n")
+				move = self.AIMove()
+				successfullMove = self.tryMove(move[0], move[1])
 
 			elif self.playerTurn is True:
-				print("Player's turn\n")
+				print("Player's Turn\n")
 				# Get input
 				y = self.getInput("What row would you like?      >")
 				x = self.getInput("What column would you like?   >")
