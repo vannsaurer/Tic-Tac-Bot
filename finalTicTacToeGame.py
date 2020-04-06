@@ -7,7 +7,7 @@ import threading
 from PIL import Image, ImageTk
 import traceback
 import datetime
-import Utils
+#import Utils
 from tkinter import StringVar
 from ticTacToeBoard import click_event
 from ticTacToeBoard import gameBoard
@@ -44,7 +44,7 @@ class ChessGame():
         self.checkWin()
 
         # See whose turn it is
-        oCount = 0;
+        oCount = 0
         xCount = 0
         for row in range(3):
             for col in range(3):
