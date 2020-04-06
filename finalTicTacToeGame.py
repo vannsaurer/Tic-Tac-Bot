@@ -153,36 +153,40 @@ class ChessGame():
         '''
         Handles moves and win conditions until the game is over
         '''
-
         while (not self.gameWon):
             successfullMove = False
             y = None
             x = None
 
-            if self.playerTurn is False:
+            #if self.playerTurn is False:
 
-                print("Ai's Turn\n")
-                move = self.AIMove()
-                print(move)
-                successfullMove = self.tryMove(move[0], move[1])
+                #print("Ai's Turn\n")
+                #move = self.AIMove()
+                #print(move)
+                #successfullMove = self.tryMove(move[0], move[1])
 
-            elif self.playerTurn is True:
-                print("Player's Turn\n")
+            if self.playerTurn is True:
+
+                cv2.imshow('image', boardImg)
+
                 # Get input
                 #y = self.getInput("What row would you like?      >")
                 #x = self.getInput("What column would you like?   >")
 
 
-                self.playerTurn = click_event
-                print("Click the board position you wish to place O")
+                successfullMove = click_event
 
+                playerTurn = False
+
+                #print("Click the board position you wish to place O")
+                #self.playerTurn = playerT
                 # Try Moving
-                successfullMove = self.tryMove(y, x)
+                #successfullMove = self.tryMove(y, x)
 
             if successfullMove:
                 self.printBoard()
 
-                # check win condition
+                # check win conssdition
                 self.checkWin()
 
                 # Flip Turn
