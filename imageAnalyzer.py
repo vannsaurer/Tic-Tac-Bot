@@ -17,7 +17,7 @@ def getInput(text):
 #create a 2d array to hold the gamestate
 gamestate = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
-userInput = getInput("Type the a number 0-4 to choose a board to read in and play > ")
+userInput = getInput("Type the a number 0-3 to choose a board to read in and play > ")
 # The 4 different board images that the user can choose from
 boardList = ['X_O1.jpg','X_O2.jpg','X_O3.jpg','X_O4.jpg']
 
