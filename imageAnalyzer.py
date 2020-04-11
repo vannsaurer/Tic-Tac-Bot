@@ -1,3 +1,5 @@
+# Nicholas Aubé
+# Virginia Saurer
 import ChessGame as cg
 import numpy as np
 import cv2
@@ -20,22 +22,26 @@ gamestate = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 print("Welcome to our Tic-Tac-Toe Bot Program!")
 print()
 print()
-print("Enter a number between 1 and 3 choose a board to read in and play,")
+print("Enter a number between 1 and 4 choose a board to read in and play,")
 userInput = getInput("or enter 0 to play with an empty board> ")
-print("After viewing the image windows, make sure to close then so you can play on that board. ")
+print("After viewing the image windows, make sure to close them so you can start playing the game. ")
 # The 4 different board images that the user can choose from
 boardList = [gamestate, 'X_O1.jpg','X_O2.jpg','X_O3.jpg','X_O4.jpg']
 if userInput == 0:
         game = cg.ChessGame(boardInput=gamestate)
 else:
         boardChosen = boardList[userInput]
+        # Load a color image of a board
         img = cv2.imread(boardChosen)
+
+        # resize final image
+        res = cv2.resize(img, None, fx=0.2, fy=0.2, interpolation=cv2.INTER_CUBIC)
+
+        # display image and release resources when key is pressed
+        cv2.imshow('originial image', res)
 
         #kernel used for noise removal
         kernel =  np.ones((7,7),np.uint8)
-
-        # Load a color image of a board
-
 
         # get the image width and height
         img_width = img.shape[0]
@@ -45,7 +51,7 @@ else:
         img_g =  cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         # turn into thresholded binary
         ret,thresh1 = cv2.threshold(img_g,127,255,cv2.THRESH_BINARY)
-        cv2.imshow('thres1',thresh1)
+
         #remove noise from binary
         thresh1 = cv2.morphologyEx(thresh1, cv2.MORPH_OPEN, kernel)
 
@@ -53,7 +59,7 @@ else:
         im2, contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         cv2.drawContours(img, contours, -1, (0,0,0), 15)#Drawing over board lines
-        cv2.imshow('contours found',img)
+
         tileCount = 0
         for cnt in contours:
                 # ignore small contours that are not tiles
@@ -103,7 +109,7 @@ else:
         res = cv2.resize(img,None,fx=0.2, fy=0.2, interpolation = cv2.INTER_CUBIC)
 
         # display image and release resources when key is pressed
-        cv2.imshow('image1',res)
+        cv2.imshow('Found "X" and "O"',res)
 
         cv2.waitKey(0)
         cv2.destroyAllWindows()
