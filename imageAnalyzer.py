@@ -35,10 +35,9 @@ else:
         img = cv2.imread(boardChosen)
 
         # resize final image
-        res = cv2.resize(img, None, fx=0.2, fy=0.2, interpolation=cv2.INTER_CUBIC)
+        res1 = cv2.resize(img, None, fx=0.2, fy=0.2, interpolation=cv2.INTER_CUBIC)
 
         # display image and release resources when key is pressed
-        cv2.imshow('originial image', res)
 
         #kernel used for noise removal
         kernel =  np.ones((7,7),np.uint8)
@@ -109,6 +108,8 @@ else:
         res = cv2.resize(img,None,fx=0.2, fy=0.2, interpolation = cv2.INTER_CUBIC)
 
         # display image and release resources when key is pressed
+        cv2.imshow('originial image', res1)
+        # cv2.destroyAllWindows()
         cv2.imshow('Found "X" and "O"',res)
 
         cv2.waitKey(0)
