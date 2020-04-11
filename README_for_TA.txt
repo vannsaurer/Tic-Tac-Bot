@@ -22,7 +22,7 @@ The GitHub repository: https://github.com/vannsaurer/Tic-Tac-Bot
 
 Please download the following files from the GitHub repository: 
 
-ticTacGame.py
+chessGame.py
 imageAnalyzer.py
 X_O1.jpg
 X_O2.jpg
