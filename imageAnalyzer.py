@@ -1,6 +1,6 @@
 # Nicholas Aubé
 # Virginia Saurer
-import ChessGame as cg
+import chessGame as cg
 import numpy as np
 import cv2
 
