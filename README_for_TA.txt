@@ -17,10 +17,11 @@ computer agent wins the game, or the game ends in a draw, the program will termi
 notifying the user of this.
 The program was written in Python and used the OpenCV library.
 
+You will find our Final Project Report in the GitHub repository - comp4102_FinalProjectReport_NicholasA_VirginiaS.pdf
 
-The GitHub repository: https://github.com/vannsaurer/Tic-Tac-Bot
+The GitHub repository: https://github.com/vannsaurer/Tic-Tac-
 
-Please download the following files from the GitHub repository: 
+Please download the following files from the GitHub repository to run our program: 
 
 chessGame.py
 imageAnalyzer.py
