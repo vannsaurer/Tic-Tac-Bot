@@ -34,7 +34,7 @@ To run the program in terminal use command: python imageAnalyzer.py
 
 There is a short video saved in the repository that shows 5 runs of our program. - One run per read in board image. 
 The video file is: TicTacBot_Video.mkv
-
+To view the video be sure to click on "view raw" after clicking on the video in the repository.
 
 
 
