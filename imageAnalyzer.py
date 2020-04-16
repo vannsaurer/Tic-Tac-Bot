@@ -17,12 +17,12 @@ def getInput(text):
         return val
 
 #create a 2d array to hold the gamestate
-gamestate = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
+gamestate = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 print("Welcome to our Tic-Tac-Toe Bot Program!")
 print()
 print()
-print("Enter a number between 1 and 4 choose a board to read in and play,")
+print("Enter a number from 1-4 to choose a tic-tac-toe board to play,")
 userInput = getInput("or enter 0 to play with an empty board> ")
 print("After viewing the image windows, make sure to close them so you can start playing the game. ")
 # The 4 different board images that the user can choose from
@@ -48,6 +48,7 @@ else:
 
         # turn into grayscale
         img_g =  cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
         # turn into thresholded binary
         ret,thresh1 = cv2.threshold(img_g,127,255,cv2.THRESH_BINARY)
 
@@ -81,6 +82,7 @@ else:
                                 # to prevent the tile finding itself as contour
                                 if cv2.contourArea(ct) <100000:#100000
                                         cv2.drawContours(imgTile, [ct], -1, (255,0,0), 15)
+
                                         #calculate the solitity
                                         area = cv2.contourArea(ct)
                                         hull = cv2.convexHull(ct)
